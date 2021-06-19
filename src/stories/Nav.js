@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Nav.css";
-import { CustomButton } from "../Components/Button.js"
+import { CustomButton } from "../Components/Button.js";
+import { UserContext } from "../Components/ListContext";
 
 function Nav( { title } ) {
+
+  const msg = useContext(UserContext);
   return (
     <div className="header">
       <div className="header__center">

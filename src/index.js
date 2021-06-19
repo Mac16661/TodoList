@@ -3,11 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { UserContext } from "./Components/ListContext";
 
 ReactDOM.render(
+  <UserContext.Provider value={"Mac"}>
   <React.StrictMode>
     <App />
-  </React.StrictMode>,
+  </React.StrictMode>
+  </UserContext.Provider>,
   document.getElementById('root')
 );
 

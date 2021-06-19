@@ -1,18 +1,5 @@
-import React, {useState, createContext} from 'react'
+import { createContext } from "react";
 
-export const ListContext = createContext();
+export const UserContext = createContext(null);
 
-function ListProvider(props) {
-    const [name, setName] = useState("");
-    setName("Subhodip");
 
-    return(
-        <ListContext.Provider value={name}>
-            {props.children}
-        </ListContext.Provider>
-    );
-}
-
-export default ListProvider;
-
-//TODO: this is currently in use

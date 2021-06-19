@@ -3,7 +3,8 @@ import { TextField } from "@material-ui/core";
 import { CustomButton } from "./Button";
 import styled from "styled-components";
 
-const StyledCounter = styled.div``;
+const StyledCounter = styled.div`
+`;
 
 const NameButton = styled(CustomButton)`
   && {
