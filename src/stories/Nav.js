@@ -5,7 +5,11 @@ import { UserContext } from "../Components/ListContext";
 
 function Nav( { title } ) {
 
-  const msg = useContext(UserContext);
+  const { value, setValue } = useContext(UserContext);
+
+  function handleClick() {
+    setValue("");
+  }
   return (
     <div className="header">
       <div className="header__center">
@@ -13,8 +17,7 @@ function Nav( { title } ) {
       </div>
 
       <div className="header__right">
-        <CustomButton className="headerRight__button1">Login</CustomButton>
-        <CustomButton  className="headerRight__button2">SignUp</CustomButton>
+        <CustomButton className="headerRight__button1" onClick={handleClick}>LogOut</CustomButton>
       </div>
     </div>
   );

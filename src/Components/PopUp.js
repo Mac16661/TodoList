@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { TextField } from '@material-ui/core'
 import { CustomButton } from './Button'
 import styled from 'styled-components';
+import { UserContext } from "./ListContext";
 
 const StyledCounter = styled.div`
 `
@@ -25,7 +26,9 @@ const Styledform = styled.form`
 
 function PopUp() {
 
-    const [name, setName] = useState("");
+    const {value, setValue} = useContext(UserContext);
+
+    // const [name, setName] = useState("");
     const [text, setText] = useState("");
 
     function handleText(e) {
@@ -35,7 +38,7 @@ function PopUp() {
 
     function handleName(e) {
         e.preventDefault();
-        setName(text);
+        setValue(text);
         setText("");
     }
     
