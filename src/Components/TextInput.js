@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { TextField } from "@material-ui/core";
 import { CustomButton } from "./Button";
 import styled from "styled-components";
+import ShowList from "./ShowList";
 
-const StyledCounter = styled.div`
-`;
+const StyledCounter = styled.div``;
 
 const NameButton = styled(CustomButton)`
   && {
@@ -29,17 +29,15 @@ const StyledTextField = styled(TextField)`
 `;
 
 function TextInput() {
-  const [todo, setTodo] = useState([]);
   const [text, setText] = useState("");
-
-  function handleText(e) {
-    // console.log(e.target.value);
-    setText(e.target.value);
-  }
-
+  const [todos, setTodos] = useState([
+    
+  ]);
+  
+  //TODO: There is some error in input 
   function handleName(e) {
     e.preventDefault();
-    setTodo(text);
+    setTodos({todo: text });
     setText("");
   }
 
@@ -49,13 +47,19 @@ function TextInput() {
         <StyledTextField
           label="Enter Todo "
           variant="outlined"
-          onChange={handleText}
+          onChange={(e) => setText(e.target.value)}
           value={text}
         />
         <NameButton type="submit" onClick={handleName}>
           Add To List
         </NameButton>
       </Styledform>
+
+      {
+        todos.map( obj => (
+          <ShowList todo={obj.todo} />
+        ))
+      }
     </StyledCounter>
   );
 }
