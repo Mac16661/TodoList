@@ -31,13 +31,16 @@ const StyledTextField = styled(TextField)`
 function TextInput() {
   const [text, setText] = useState("");
   const [todos, setTodos] = useState([
-    
+    // {todo: "homework"}, {todo: "School work"}
   ]);
   
   //TODO: There is some error in input 
   function handleName(e) {
     e.preventDefault();
-    setTodos({todo: text });
+    // console.log(text);
+    var id = Math.floor(Math.random() * 100) + 1;
+    setTodos([...todos, {id: id, todo: text}]);
+    // console.log(todos);
     setText("");
   }
 
@@ -57,7 +60,7 @@ function TextInput() {
 
       {
         todos.map( obj => (
-          <ShowList todo={obj.todo} />
+          <ShowList key={obj.id} todo={obj.todo} />
         ))
       }
     </StyledCounter>
