@@ -39,7 +39,7 @@ function TextInput() {
     e.preventDefault();
     // console.log(text);
     var id = Math.floor(Math.random() * 100) + 1;
-    setTodos([...todos, {id: id, todo: text}]);
+    setTodos([...todos, {id: id, todo: text, isDone: false}]);
     // console.log(todos);
     setText("");
   }
@@ -60,7 +60,7 @@ function TextInput() {
 
       {
         todos.map( obj => (
-          <ShowList key={obj.id} todo={obj.todo} />
+          <ShowList key={obj.id} todo={obj.todo} isDone={obj.isDone} id={obj.id} />
         ))
       }
     </StyledCounter>
